@@ -1,0 +1,434 @@
+______________________*_CONCEPTION_*_______________________
+
+
+	Here we will briefly describe our choices and what led us to write a code as we present it to you.
+	We have listed our choices according to packages and then classes.
+	
+	The methods will be written between brackets [ ].
+	Classes will be written in parentheses ( ).
+	Class packages will be written between asterix * *.
+	
+	
+______________________*_STEP_1_PACMAN*_______________________	
+
+
+	2.1: Preparation of the SuperPacman game
+		  Level1): *java/ch/epfl/cs107/play/game/superpacman/area/Level1.java*
+		  Creation of (Level2): *java/ch/epfl/cs107/play/gCreation of (SuperPacmanPlayer): *java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+		  Creation of (SuperPacman): *java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacman.java*
+		  Creation of (SuperPacmanArea): *java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanArea.java*
+		  Creation of (SuperPacmanBehavior): *java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanBehavior.java*       
+		  Creation of (Level0): *java/ch/epfl/cs107/play/game/superpacman/area/Level0.java*
+		  Creation of (ame/superpacman/area/Level2.java*
+		  
+		  
+	2.1.1: Adapted from SuperPacmanBehavior
+			
+			*java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanBehavior.java*
+			Modification of the [canEnter] method. It returns true only if the cell contains only traversable actors.
+			Creation of the list of cell types of SuperPacman [enum SuperPacmanCellType]
+			Creation of methods that manage cell types [static SuperPacmanCellType]
+			Creation of [registerActors] 
+			Creation of the [neighbouringCellsCheck] method that verifies whether the cells are walls or not
+			Calls to the [neighbouringCellsCheck] method in registerActor to build the maze
+			
+			*java/ch/epfl/cs107/play/game/superpacman/area/Level0.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level1.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level2.java*          
+			Modidication des methodes [getTitle] des (Level0), (Level1), (Level2) 
+			
+			*java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanArea.java*
+			Modification de la methode [begin] de (SuperPacmanArea) -> enregistrement des aires de jeu 
+			Modification de la méthode [createAreas] de (SuperPacman) -> creation des aires de jeu
+			
+			
+	2.2: Outline of the main character
+		  
+		  *java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+		  Creation of the constructor of (SuperPacmanPlayer)
+		  Changing the draw method of (SuperPacmanPlayer)
+		  
+		  *java/ch/epfl/cs107/play/game/superpacman/area/Level0.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level1.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level2.java*          
+		  Creation of [getPlayerSpawnPosition] in Levels and the PLAYER_SPAWN_POSITION constant
+		  
+	
+	2.2.1: Method of update
+			
+			*java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+			Changed [update]. Takes desire orientation into account, player moves alone
+			Change [getCurrentCells] according to enonce
+						
+
+	2.3: Interaction with Doors
+		  
+		  *java/ch/epfl/cs107/play/game/superpacman/actor/handler*
+		  Creation of the Handler packet
+		  Creation of the SuperPacmanVisitors interface
+		  Creating the default interface of a SuperPacmanPlayer. Empty interaction by default
+		  
+		  *java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+		  Creation of the nesting class (SuperPancmanPlayerHandler)
+		  Creation of the [interactWith] method that interacts with a door
+		  Modification of [acceptInteraction]
+		  
+	
+	2.3.1: Registration of actors in the areas
+	
+			*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacman.java*
+			Changed [begin] to initialize the player
+			
+			*java/ch/epfl/cs107/play/game/superpacman/area/Level0.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level1.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level2.java*          
+		 	Modification of [createArea] Levels. Addition of the actor Door
+		 	
+		 	
+	2.4: Animation of the character
+	
+		  *java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+		  Modification of the (SuperPacmanPlayer) constructor. Using a sprite array to animate the Pacman
+		  Changed [draw] from (SuperPacmPlayer) to display animations
+		  Modified [update] to update the animation at each step. Consideration of non movement and reinitialization of the image with the default image when the player is still
+		  	
+	
+______________________*_STEP_2_COLLECT*_______________________	
+
+
+	3.2: Static graphics
+	
+		  *java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayerGUI.java*
+		  Creation of (SuperPacmanPlayerStatusGUI)
+		  Creation and modification of the constructor of (SuperPacmanPlayerStatusGUI)
+		  	  
+	
+	3.3: Collection of objects
+		  
+		  *java/ch/epfl/cs107/play/game/superpacman/actorCollectableAreaEntity.java*
+		  Creation of (CollectableAreaEntity) and methods necessary to the class
+		  Changed [getCurrentCells]
+		  Changed [acceptInteraction]. Accepts managed interactions by the (SuperPacmanPlayerInteractionVisitor)
+		  Modification of [interactWith]. Desregisters the actor during a contact interaction
+		  
+		  *java/ch/epfl/cs107/play/game/superpacman/actorBonus.java*
+		  Creation of (Bonus) which is a pick-up object
+		  Modification of the manufacturer
+		  Modified [update] to update animation
+		  Changed [draw] to show bonus
+		  *java/ch/epfl/cs107/play/game/superpacman/actorCherry.java*
+		  Creation of (Cherry) which is a pick-up object
+		  Modification of the manufacturer
+		  Modified [update] to update animation
+		  Change [draw] to display the cherry
+		  Creation of a [score] method to increase the number of points of the Pacman during a contact interaction
+		  
+		  *java/ch/epfl/cs107/play/game/superpacman/actorDiamond.java*
+		  Creation of (Diamond) which is a pick-up object
+		  Modification of the manufacturer
+		  Modified [update] to update animation
+		  Change [draw] to display the diamond
+		  Creation of a [score] method to increase the number of points of the Pacman during a contact interaction
+		  
+		  *java/ch/epfl/cs107/play/game/superpacman/actorKey.java*
+		  Creation de (Key) qui est un objet ramassable
+		   
+	
+	3.3.1: Automatic creation of objects to collect
+	
+			*java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+			Changed (SuperPacmanPlayerHandler) to [ineractWith] for each pick-up object
+			Calls to the [score] method for cherry and diamond	
+	
+	
+	3.3.2: Task
+	
+			*java/ch/epfl/cs107/play/game/superpacman/area/Level0.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level2.java*          
+			Modification of (Level) with manual addition of keys in levels 0 and 3 (no key in level 2)
+			
+			*java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+			Change [update] in (SuperPacmanPlayer) to update the score at each simulation step
+			Creation of [getScore] in (SuperPacmanPlayer) to get the score in another class without breaking the encapsulation
+					
+	
+	3.4: Signal Dependent Objects
+		  
+		  *java/ch/epfl/cs107/play/game/superpacman/actorGate.java*
+		  Creation of (Gate) and its constructors/methods
+		  Creation of two constructors: one that takes a single key in attribute and another that takes two keys in attribute
+		  Modified [takeCellSpace]
+		  Changed [getCurrentCells]
+		  Modification of [draw]
+		  
+		  
+	3.4.1: Task
+			
+			*java/ch/epfl/cs107/play/game/superpacman/area/Level0.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level1.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level2.java* 
+			Modification of (Level0), (Level1), (Level2) with addition of gates
+			
+			*java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanBehavior.java*
+			Changed [interactWith] from (SuperPacmanPlayerHandler) Diamond to count the number of diamond created when creating the playing area
+			Creation of (getNumberOfDiamonds) which returns the total number of diamonds in the playing area
+				
+			*java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanArea.java*
+			Creation of [removeADiamond] which counts the number of diamond collected by Pacman and tests if this number is equal to the total number of diamond in the playing area
+			
+			*java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanBehavior.java*
+			Changed [interactWith] from (SuperPacmanPlayerHandler) where on
+			
+
+______________________*_STEP_3_GHOSTS_*_______________________	
+
+	
+	4.1: Fearful Ghosts and Invulnerable Characters
+			
+			*java/ch/epfl/cs107/play/game/superpacman/actor/Ghost.java*
+			Creation of (Ghost) and methods inheriting its super class: [draw], [acceptInteraction], [isViewInteractable], [takeCellSpace], [interactWith], [getFieldOfViewCells], [getCurrentCells]
+			Creation of the constructor of (Ghost)
+			Creation of [ghostIsAfraid] and addition of lines concerning the creation and animation of frightened ghosts
+			Added the isGhostAfraid variable initialized to false in the constructor. Used to determine when ghosts are scared
+			Edit [update]: consider whether the phantom is vulnerable or not
+			Changed [getCurrentCells] and [ineractWith]
+			
+			*java/ch/epfl/cs107/play/game/superpacman/actor/Bonus.java*
+			Added variable INVULNERABILITY_TIMER
+			Creation of [getBonusTimer] which returns the remaining bonus time
+			
+			*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacmanPlayer.java*
+			Creation of [setCurrentBonusTimer] which allows to modify the remaining time of invulnerability of the player
+			Modification of [interactWith] of the bonus: creation of a copy of INVULNERABILITY_TIMER: currentBonusTimer, useful in (SuperPacmanPlayer)
+			
+	
+	4.2: Interaction between the character and the ghosts
+		
+		*java/ch/epfl/cs107/play/game/superpacman/actor/Ghost.java*
+		Creation of [score] to increase the player’s score
+		Creation of [getFieldOfViewCells] that allows a 5-cell vision of the phantom around it
+		Creation of the memory variable to record the player’s coordinates
+		Creation of [isAte] to de-register the phantom from the area and reinitialized the memory of the phantom
+			
+		*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacmanPlayer.java*
+		Modification of [interactWith] of the ghost, consideration of the afraid and non afraid fantome. If not afraid then loss of a life otherwise, calls the [isAte] method
+		Creation of [goToSpawnPosition] which allows to deregister the player from the area and reset it to SPAWN_POSITION
+		Modification of [interactWith] of the ghost, considering the reinitalization of the player if he is eaten by a ghost
+		
+		*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacmanPlayer.java*
+		Modified [takeCellSpace] so that ghosts can pass through the ghost (anticipation of what follows)
+		
+		*java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanArea.java*
+		Creation of [ateGhost] which is a list of all ghosts registered in the area. Applies methods to all phantoms at the same time
+		
+	
+	4.3: General behaviour of ghosts
+		
+		*java/ch/epfl/cs107/play/game/superpacman/actor/Ghost.java*
+		Creation of [getNextOrientation] to manage the desired orientation of the phantoms
+		Modification of [update]: consideration if moving in progress and not moving in progress. Considerations if moving, whether the ghost is scared or not.
+		  
+		  *java/ch/epfl/cs107/play/game/superpacman/actor/Blinky.java*
+			Creation of (Blinky) and his constructor
+			Creation of [draw] to see his animations
+			Creation of [getNextOrientation] to determine a random Orientation for his next displacement(used in Ghost.java)
+			Creation of [update] to update the animation of Blinky
+			
+	4.5 : Adding ghosts to the game
+	
+		*java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanBehavior.java*
+		   Ghosts(Pinky,Inky,Blinky) are created in [registerActors] if the color of the cell in the are correspond to their color
+	
+	
+	4.6 : Graph associated to the grid
+	
+			*java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanBehavior.java*
+			 Setting graph as an attribute of the class
+			 Determining is a cell is a wall in [SuperPacmanBehavior]
+			 if not --> determining the presence of edges of each not wall-cell around it (1 cell distant)
+			 			adding a Node with coordinates and edges
+			Creation of a Getter to get the graph built in this class
+			
+			
+			
+	4.7: Inky the prudent
+		
+			*java/ch/epfl/cs107/play/game/superpacman/actor/IntelligentGhost.java*
+			Creation of (IntelligentGhost) which is a class common to Inky and Pinky with intelligent strategies against the player
+			Creation of [targetCellRandom] in abstract to define the method later, scpecific method to each intelligent phantom
+			Creation of the constructor and methods inheriting its super class: [draw], [update].
+	
+			*java/ch/epfl/cs107/play/game/superpacman/actor/Inky.java*
+			Creation of (Inky) with its constructor and methods inheriting its super classes: [draw], [update], [isAte], [getNextOrientation], [calculWays]
+			Modification of [update]: 
+			Modification of [draw]: Taking into account the frightened world of ghosts and moving (or not moving) in progress
+			
+			
+	4.7.1: Calculation of an Achievable Case
+	
+			*java/ch/epfl/cs107/play/game/superpacman/actor/IntelligentGhost.java*
+			Creation of [randomCoordinatesGenerator] that generates random cell coordinates
+												
+			*java/ch/epfl/cs107/play/game/superpacman/actor/Inky.java*
+			Override of [targetCellRandom]: which generates a target cell according to criteria specific to Inky, less than the max distance from the refuge if scared and if not scared
+							
+	
+	4.7.2: getNextOrientation method
+			
+			*java/ch/epfl/cs107/play/game/superpacman/actor/IntelligentGhost.java*
+			Creation of [getNextOrientation] common to Inky and Pinky: uses a steering list that determines the shortest path to reach a target (player or cell randomly selected on the playing area). 
+			This method takes into account if the phantom already has a destination, if its path is null, if the phantom is spooked and if it does not move.
+					
+	
+	4.8 : Pinky le fuyant
+	
+			*java/ch/epfl/cs107/play/game/superpacman/actor/Pinky.java*
+			Creation of (Pinky) with his constructor and methods that herit from the super class : [draw], [update], [isAte], [getNextOrientation], [calculWays]
+			Modification of [update] : update the animation of Pinky
+			Modification of [draw] : draw the ghost when it is afraid or not
+			Modification of [TargetCellRandom] : Determine what is the target cell(if player in memory, go to player, if path null go to random position...)
+	
+	4.9: Calculation of paths and obstacles
+			
+			*java/ch/epfl/cs107/play/game/superpacman/actor/Gate.java*
+			Modified the constructor with a graph addition to block the graph nodes at the gates -> prevent ghosts from wanting to cross closed gates
+			Removal of the two-key constructor. A single constrctor is now sufficient. 
+			
+			*java/ch/epfl/cs107/play/game/superpacman/area/Level2.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level3.java*
+			Modification of gate inialization in these levels. Addition of Gold(key3, key4, instead of: key3, key4. Use of Gold because according to a truth table, the gate opens if it receives two intensity = 0. Otherwise it opens.
+				
+			*java/ch/epfl/cs107/play/game/superpacman/actor/Key.java*
+			Changed [getIntensity] to return a 1 if the signal is null because our gate opens with a false signal.
+______________________*_STEP_4_EXTENSIONS_*_______________________	
+		
+		
+	Management of the pause: 
+									*java/ch/epfl/cs107/play/game/superpacman/actorPauseGUI.java*
+									Creation of (PauseGUI) with its constructor and [draw], display of the 'pause' mode
+									
+									*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacman.java*
+									Creation of [pauseCheck] which allows the game to be paused
+									Change [begin] from (SuperPacman) by calling [pauseCheck]
+																		
+									*java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+									Creation of [getScore] in (SuperPacmanPlayer) to get the score in another class without breaking the encapsulation
+																		
+	
+	Game over management: 
+							*java/ch/epfl/cs107/play/game/superpacman/actorEndGUI.java*
+							Creation of (EndGUI) with its constructor and [draw], display of the 'pause' mode
+									
+							*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacman.java*
+							Creation of [endCheck] which game over management (more life)
+							Change [begin] from (SuperPacman) by calling [endCheck]
+							
+	
+	Speed management according to levels:
+													*java/ch/epfl/cs107/play/game/superpacman/area/Level0.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level1.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level2.java*          
+													Creation of [getSpeed] in each (Level) and initialization of speeds in a SPEED variable
+													
+													*java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+													Modification of [update]. Instead of calling SPEED of the class, we call the speed getter which corresponds to the current level
+														
+	
+	|Actor| Portation portal: 
+										*java/ch/epfl/cs107/play/game/superpacman/actorTeleportation.java*
+										Creation of (Teleportation) and creation of the necessary methods
+										Modifying default methods: [getCurrentCells], [draw], [acceptInteraction], [takeCellSpace]
+										
+										*java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+										Creation of [interactWith] in (SuperPacmanPlayerHandler) for Teleportation
+										
+										*java/ch/epfl/cs107/play/game/superpacman/actor/handler/SuperPacmanIneteractionVisitor.java*
+										Adding an interaction default method for Teleportation
+											
+		
+	Gestion de la vitesse en fonction de l’état « a mange une cerise » :	
+																		*java/ch/epfl/cs107/play/game/superpacman/area/Level0.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level1.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level2.java* / *java/ch/epfl/cs107/play/game/superpacman/area/Level3.java*
+																		Creation de la variable NormalSpeed (initialisee) et des methodes [getNormalSpeed], [setSpeed]
+																																			
+																		*java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanArea.java*    
+																		Creation of  [getNormalSpeed], [setSpeed], [getSpeed]
+																		When the SuperPacman, its current speed is increased by 1(int) for a time equal to Â 3(float). 
+																		Speed changes made by setters and getters of the levels, used in the SuperPacmanArea
+																		
+			
+	|Actor| Rock: 
+						*java/ch/epfl/cs107/play/game/superpacman/actor/Rock.java*
+						Creation of (Rock) and creation of the necessary methods
+						Modifying default methods: [getCurrentCells], [draw], [takeCellSpace]
+						
+						*java/ch/epfl/cs107/play/game/superpacman/handler/SuperPacmanIneteractionVisitor.java*
+						Adding an interaction default method for Rock
+												
+			  
+	|Actor| Shadow: 
+						*java/ch/epfl/cs107/play/game/superpacman/actor/Shadow.java*
+						Creation of (Shadow) and creation of the necessary methods
+						Modifying default methods: [getCurrentCells], [draw], [takeCellSpace]
+						
+						*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacmanPlayer.java*
+						Creation of [interactWith] in (SuperPacmanPlayerHandler) for Shadow
+						
+						*java/ch/epfl/cs107/play/game/superpacman/handler/SuperPacmanIneteractionVisitor.java*
+						Adding an interaction default method for Shadow
+							
+			
+	|Actor| Clyde: 
+						*java/ch/epfl/cs107/play/game/superpacman/actor/Clyde.java*
+						Creation of (Clyde) and creation of the necessary methods inheriting its super classes
+						Modifying methods by default: [draw], [targetCellRandom],[ghostIsAfraid]
+						
+						*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacmanPlayer.java
+						add attributes clyde & player(usefull for SuperPacmanPlayerHandler)
+						
+						---In class SuperPacmanPlayerHandler--
+						Modification of interactWith(Bonus...)
+						Creation of a Clyde if possible(see conditions)
+						Registration of Clyde in the current area
+						---------------------------------------
+						Modification of the method update to unregister Clyde when necessary
+						
+	
+	|Actor | Heart: 
+						*java/ch/epfl/cs107/play/game/superpacman/actor/Heart.java*
+						Creation of (Heart) and methods: constructor, [update], [draw], [acceptInteraction]
+						
+						*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacmanPlayer.java*
+						Creation of [interactWith] of a heart. Allows interaction of the player with a heart. Earns an additional life
+						
+						*java/ch/epfl/cs107/play/game/superpacman/handler/SuperPacmanInteractionVisitor.java*
+						Creation of [interactWith] by default a heart with the player
+						
+
+	|Actor| CellOver: 
+						*java/ch/epfl/cs107/play/game/superpacman/actor/CellOver.java*
+						Creation of (CellOver) and methods: constructor, [update], [draw], [acceptInteraction]
+					
+						*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacmanPlayer.java*
+						Creation of [interactWith] from CellOver. Allows the player to interact with the object(indicate that the game is finished(kind of signal))
+					
+						*java/ch/epfl/cs107/play/game/superpacman/handler/SuperPacmanInteractionVisitor.java*
+						Creation of [interactWith] by default of a CellOver with the player		
+								
+						
+	|Actor| Bomb: 
+					*java/ch/epfl/cs107/play/game/superpacman/actor/Bomb.java*
+					Creation of (Bomb) and methods: constructor, [update], [draw], [acceptInteraction], [getExplosionTimer] and [explosion]
+					Moving the resource files: bomb and explosion to put them in the Superpacman folder
+					
+					*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacmanPlayer.java*
+					Creation of [interactWith] a bomb. Allows the player to interact with a bomb
+					Creation of [setCurrentExplosionTimer]. Recovers the timer of the bomb
+					Remove points to player's score in [interactWith]
+								
+					*java/ch/epfl/cs107/play/game/superpacman/handler/SuperPacmanInteractionVisitor.java*
+					Creation of [interactWith] by default of a bomb with the player
+					
+					
+					
+		
+	Level 3: 
+				*java/ch/epfl/cs107/play/game/superpacman/area/Level3.java*
+				Creation of (Level3) its default methods
+				Modification of [createArea] with new actors: Shadow, Clyde, Rock, Teleportation, and bombs
+				
+				*java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacman.java*
+				Modification of [createAreas] with addition of Level3
+	
+	Level 2: We've add bombs in [createArea]
+		
+=================================================================
+                    ENJOY & MERRY CHRISTMAS !                    
+=================================================================
