@@ -6,10 +6,6 @@ Within the scope of the CS107 (Java Programming) course, I had to create the Sup
 - The SuperPacMan.zip is the project's file.
 - CONCEPTION.txt is a brief summary of the choices we've made in our code.
 
-![Capture d’écran 2022-08-27 123021](https://user-images.githubusercontent.com/73343827/187026512-41763626-9463-4d70-851f-98a599abb027.png)
-
-![Capture d’écran 2022-08-27 122919](https://user-images.githubusercontent.com/73343827/187026516-2c6314f9-1c66-44fc-bf6b-a1900a7512d2.png)
-
 
 ________________________*HOW TO LAUNCH*_________________________
 
@@ -83,9 +79,14 @@ ________________________*GAMEPLAY*_________________________
 		  teleportation portals, rocks that may will block your way, darkness will be lurking in the recesses of your neglect.
 	
 
+<ins>Overview :</ins>
+![Capture d’écran 2022-08-27 123021](https://user-images.githubusercontent.com/73343827/187026512-41763626-9463-4d70-851f-98a599abb027.png) 
+![Capture d’écran 2022-08-27 122919](https://user-images.githubusercontent.com/73343827/187026516-2c6314f9-1c66-44fc-bf6b-a1900a7512d2.png)
+
+
 Note : the image used for "PAUSE" is free of use.
 	   the link : https://pixabay.com/fr/vectors/pacman-jeu-d-ordinateur-c64-cerises-149704/
 	   
 	   
 	   
-	   
+	  
