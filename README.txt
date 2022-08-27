@@ -1,3 +1,8 @@
+Within the scope of the CS107 (Java Programming) course, I had to create the SuperPacMan Game, using OOP.
+
+- You'll find here the instructions to launch the game and play.
+- The SuperPacMan.zip is the file of the project.
+- CONCEPTION.txt is a brief summary of the choices we've made in our code.
 
 _________________________*_HOW_TO_LAUNCH_*_________________________
 
