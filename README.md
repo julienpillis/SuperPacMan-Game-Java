@@ -7,6 +7,9 @@ Within the scope of the CS107 (Java Programming) course, I had to create the Sup
 - CONCEPTION.txt is a brief summary of the choices we've made in our code.
 
 
+
+
+
 ________________________*HOW TO LAUNCH*_________________________
 
 	     To launch the game run the SuperPacMan.jar file
@@ -80,7 +83,10 @@ ________________________*GAMEPLAY*_________________________
 	
 
 <ins>Overview :</ins>
+
 ![Capture d’écran 2022-08-27 123021](https://user-images.githubusercontent.com/73343827/187026512-41763626-9463-4d70-851f-98a599abb027.png) 
+
+
 ![Capture d’écran 2022-08-27 122919](https://user-images.githubusercontent.com/73343827/187026516-2c6314f9-1c66-44fc-bf6b-a1900a7512d2.png)
 
 
