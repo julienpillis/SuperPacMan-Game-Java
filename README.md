@@ -1,8 +1,12 @@
+#SuperPacMan-Game-Java
 Within the scope of the CS107 (Java Programming) course, I had to create the SuperPacMan Game, using OOP.
 
 - You'll find here the instructions to launch the game and play.
 - The SuperPacMan.zip is the file of the project.
 - CONCEPTION.txt is a brief summary of the choices we've made in our code.
+
+
+
 
 _________________________*_HOW_TO_LAUNCH_*_________________________
 
@@ -87,3 +91,7 @@ __________________________*_GAME_PLAY_*___________________________
 
 Note : the image used for "PAUSE" is free of use.
 	   the link : https://pixabay.com/fr/vectors/pacman-jeu-d-ordinateur-c64-cerises-149704/
+	   
+	   
+	   
+	   
