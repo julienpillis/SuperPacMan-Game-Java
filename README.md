@@ -1,19 +1,22 @@
 #SuperPacMan-Game-Java
+
 Within the scope of the CS107 (Java Programming) course, I had to create the SuperPacMan Game, using OOP.
 
 - You'll find here the instructions to launch the game and play.
-- The SuperPacMan.zip is the file of the project.
+- The SuperPacMan.zip is the project's file.
 - CONCEPTION.txt is a brief summary of the choices we've made in our code.
 
+![Capture d’écran 2022-08-27 123021](https://user-images.githubusercontent.com/73343827/187026512-41763626-9463-4d70-851f-98a599abb027.png)
+
+![Capture d’écran 2022-08-27 122919](https://user-images.githubusercontent.com/73343827/187026516-2c6314f9-1c66-44fc-bf6b-a1900a7512d2.png)
 
 
-
-_________________________*_HOW_TO_LAUNCH_*_________________________
+________________________*HOW TO LAUNCH*_________________________
 
 	     To launch the game run the SuperPacMan.jar file
 
 
-___________________________*_CONTROLS_*____________________________
+________________________*CONTROLS*_________________________
 
 		Left arrow   :    left
 		Right arrow  :    right
@@ -23,7 +26,7 @@ ___________________________*_CONTROLS_*____________________________
 		Q            :    quit the game (after a game over)
 		
 
-__________________________*_GOAL_OF_THE_GAME_*___________________________
+________________________*GOAL*_________________________
 
  
 	Earn as many points as possible by eating diamonds, cherries while avoiding ghosts trying to eat our Pacman.
@@ -31,8 +34,7 @@ __________________________*_GOAL_OF_THE_GAME_*___________________________
 	This is characterized by ghosts fleeing our Pacman.
 	In order to access what is behind a portal, you must retrieve (among other things eat) the key that corresponds to this portal.
 	
-
-__________________________*_ACTORS_LIST_*___________________________
+________________________*ACTORS*_________________________
 
 
 	- Pacman : Recognizable between a thousand with its legendary design.
@@ -55,8 +57,7 @@ __________________________*_ACTORS_LIST_*___________________________
 	- Cherry : Eat one and you’ll see your score explode! But watch out for a sudden rush of adrenaline.
 
 
-
-__________________________*_GAME_PLAY_*___________________________
+________________________*GAMEPLAY*_________________________
 
 
 	Level 0: 
@@ -81,12 +82,6 @@ __________________________*_GAME_PLAY_*___________________________
 		  You will meet ghosts thirsting for Pacman, a ghost faster than anyone you have ever met, 
 		  teleportation portals, rocks that may will block your way, darkness will be lurking in the recesses of your neglect.
 	
-	
-	
-
-=================================================================
-                    ENJOY !                    
-
 
 Note : the image used for "PAUSE" is free of use.
 	   the link : https://pixabay.com/fr/vectors/pacman-jeu-d-ordinateur-c64-cerises-149704/
