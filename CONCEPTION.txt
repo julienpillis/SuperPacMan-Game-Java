@@ -13,8 +13,9 @@ ______________________*_STEP_1_PACMAN*_______________________
 
 
 	2.1: Preparation of the SuperPacman game
-		  Level1): *java/ch/epfl/cs107/play/game/superpacman/area/Level1.java*
-		  Creation of (Level2): *java/ch/epfl/cs107/play/gCreation of (SuperPacmanPlayer): *java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
+		   Creation of (Level1): *java/ch/epfl/cs107/play/game/superpacman/area/Level1.java*
+		  Creation of (Level2): *java/ch/epfl/cs107/play/game/superpacman/area/Level2.java*
+		  Creation of (SuperPacmanPlayer): *java/ch/epfl/cs107/play/game/superpacman/actorSuperPacmanPlayer.java*
 		  Creation of (SuperPacman): *java/ch/epfl/cs107/play/game/superpacman/actor/SuperPacman.java*
 		  Creation of (SuperPacmanArea): *java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanArea.java*
 		  Creation of (SuperPacmanBehavior): *java/ch/epfl/cs107/play/game/superpacman/area/SuperPacmanBehavior.java*       
@@ -430,5 +431,5 @@ ______________________*_STEP_4_EXTENSIONS_*_______________________
 	Level 2: We've add bombs in [createArea]
 		
 =================================================================
-                    ENJOY & MERRY CHRISTMAS !                    
+                    ENJOY !                    
 =================================================================
